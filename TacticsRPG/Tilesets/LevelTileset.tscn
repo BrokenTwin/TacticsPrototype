@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://GFX/testLevel/emptySpace.png" type="Texture" id=1]
+[ext_resource path="res://GFX/testLevel/obstacle.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 64 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 64, 64 )
+
+[node name="TerrainTiles" type="Node2D"]
+
+[node name="emptySpace" type="Sprite" parent="."]
+position = Vector2( 256, 192 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="emptySpace"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="emptySpace/StaticBody2D"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="obstacle" type="Sprite" parent="."]
+position = Vector2( 512, 192 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="obstacle"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obstacle/StaticBody2D"]
+visible = false
+shape = SubResource( 2 )
+
